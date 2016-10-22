@@ -22,6 +22,10 @@ module Sounds::Introduction
 
   Metronome:
      - start and stop with #{"/u".green}
+     - responds to changes in tempo and time signature
+
+  Time signature
+     - set to N: #{"\s".green}
    
 
   

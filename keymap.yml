@@ -7,4 +7,4 @@ s: |
   play "snare"
 
 d: |
-  stagger "hihat"
+  stagger "hihat", beat_type: 16, beats: 8

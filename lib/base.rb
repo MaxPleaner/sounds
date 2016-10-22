@@ -11,11 +11,22 @@ module Sounds::Base
     input
   end
 
+  def err
+    puts "\n\ninvalid command\n".red
+    true # keep this here
+  end
+
+  def play(name)
+    Thread.new { `mpg123 #{mp3_path name} > /dev/null 2>&1` }
+  end
+
   def process_special_command(input)
     if input == SpecialCommandCharacter
+      print SpecialCommandCharacter
       special_command = get_char(true).to_sym rescue nil
-      if SpecialCommandList.include? special_command
+      if self.class::SpecialCommandList.include? special_command
         send(special_command)
+        print "\n"
       else
         puts "command not recognized"
       end
@@ -30,7 +41,7 @@ module Sounds::Base
     loop do
       input = get_char
       next if process_special_command(input)
-      Thread.new { eval keymap[input] || "" }
+      eval(keymap[input] || "")
     end
   end
   
