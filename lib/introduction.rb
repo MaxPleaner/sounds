@@ -8,11 +8,14 @@ module Sounds::Introduction
 
 #{"Commands".bold}:
   
-  Quit: #{"control+c".green}
+  Quit:
+     - #{"control+c".green}
 
-  Help: #{"/h".green}
+  Help:
+     - #{"/h".green}
 
-  Print keymap: #{"/k".green}
+  Print keymap:
+     - #{"/k".green}
 
   Tempo:
      - effects can use the Tempo constant to access this (it defaults to 120)
@@ -26,6 +29,9 @@ module Sounds::Introduction
 
   Time signature
      - set to N: #{"\s".green}
+
+  Record
+      - start and stop with 
    
 
   

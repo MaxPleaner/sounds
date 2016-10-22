@@ -19,13 +19,20 @@ module Sounds; end
 # Require those other files
 Dir.glob("./lib/*.rb").each { |path| require path }
 
+# initialize with a tempo
 $tempo_bpm = ENV["Tempo"] || 120.0
+
+# start with the metronome off
 $is_metronome_playing = false
+
+# 8 beats is the default "time signature" (this is used by metronome)
 $time_signature = ENV["TimeSignature"]&.to_i || 8.0
+
+# start with recording off
+$is_recording = false
 
 # When including Sounds, some other modules/constants are loaded as well
 module Sounds
-  attr_accessor :tempo_bpm, :is_metronome_playing, :time_signature
   def self.included(base)
     super
     base.class_exec do
@@ -33,7 +40,6 @@ module Sounds
       include Sounds::Base
       include Sounds::Loader
       include Sounds::Effects
-      include Sounds::Tempo
       include Sounds::SpecialCommands
     end
   end

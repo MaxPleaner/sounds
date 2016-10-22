@@ -1,12 +1,14 @@
 module Sounds::SpecialCommands
   
+  # load all the files in lib/special_commands and make their constants available here
   Dir.glob("./lib/special_commands/*.rb").each do |path|
     require path
     const_name = path.file_identifier.capitalize
     self.const_set(const_name, Object.const_get("Sounds::#{const_name}")) 
   end
 
-  SpecialCommandList = [:k, :t, :h, :u, :s]
+  # When creating a new command make sure to add it to this list
+  SpecialCommandList = [:k, :t, :h, :u, :s, :r]
 
   # keymap
   def k
@@ -17,7 +19,7 @@ module Sounds::SpecialCommands
   def t
     original_tempo = $tempo_bpm
     next_input = get_char(true)
-    cmd = { u: :up, d: :down, '=': :set }.fetch next_input.to_sym
+    cmd = { u: :up, d: :down, '=': :set }[next_input.to_sym]
     result = cmd ? Tempo.send(cmd) : (err && return)
     result || (err && return)
     puts "Changed tempo from #{original_tempo} to #{$tempo_bpm}"
@@ -54,5 +56,8 @@ module Sounds::SpecialCommands
       puts "invalid time signature"
     end 
   end
+
+  # record
+  def r
 
 end

@@ -1,10 +1,15 @@
 ---
 
-a: |
+z: |
   play "kick"
+
+d: |
+  play "hihat"
 
 s: |
   play "snare"
 
-d: |
-  stagger "hihat", beat_type: 16, beats: 8
+f: |
+  stagger "hihat", beat_type: 64, beats: 8
+
+

@@ -41,7 +41,7 @@ module Sounds::Base
     loop do
       input = get_char
       next if process_special_command(input)
-      eval(keymap[input] || "")
+      Thread.new { eval(keymap[input] || "") }
     end
   end
   
