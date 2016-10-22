@@ -11,6 +11,8 @@
   - `alsamixer` (must be configured to use CAPTURE mode - see [a tutorial](https://jordilin.wordpress.com/2006/07/28/
   howto-recording-audio-from-the-command-line/))
   - `arecord`
+  - `ffmpeg`
+  - ogg vorbis tools
 - a decent processor. I have an intel i5 and the load is fairly low. But
 keep in mind that every drum hit opens a thread and tells `mpg123` to play a
 mp3 file. 
