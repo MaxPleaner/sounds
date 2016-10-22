@@ -59,5 +59,25 @@ module Sounds::SpecialCommands
 
   # record
   def r
+    $is_recording = ! $is_recording
+    if $is_recording
+      puts "recording".green
+      puts "\n  you're live\n\n\n".yellow
+      Thread.new do
+        @file_id = Time.now.to_i
+        `arecord -f cd -t raw | oggenc - -r -o recording/#{@file_id}.ogg > /dev/null 2>&1`
+      end
+    else
+      `pkill arecord`
+      puts "please check #{`pwd`.chomp}/recording and ".white_on_red
+      puts "press enter when ogg file is ready".white_on_red
+      input = gets.chomp
+      puts "finished recording to ogg. converting to mp3 ...".white_on_red
+      `ffmpeg -i recording/#{@file_id}.ogg recording/#{@file_id}.mp3 > /dev/null 2>&1`
+      `rm recording/#{@file_id}.ogg`
+      puts "created recording/#{@file_id}.mp3 and removed ogg source".white_on_red
+      puts " - - - - ".blue
+    end
+  end
 
 end
