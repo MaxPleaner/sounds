@@ -1,0 +1,10 @@
+---
+
+a: |
+  play "kick"
+
+s: |
+  play "snare"
+
+d: |
+  stagger "hihat"
