@@ -20,7 +20,7 @@ module Sounds::SpecialCommands
     original_tempo = $tempo_bpm
     next_input = get_char(true)
     cmd = { u: :up, d: :down, '=': :set }[next_input.to_sym]
-    result = Tempo.send(cmd) if cmd
+    result = cmd ? Tempo.send(cmd) : (err && return)
     result || (err && return)
     puts "Changed tempo from #{original_tempo} to #{$tempo_bpm}"
   end
