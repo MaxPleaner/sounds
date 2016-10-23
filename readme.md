@@ -41,7 +41,8 @@ are some examples:
 
   - `/r` turns on/off recording
   - `/u` turns on/off metronome
-  - `/td` launches a prompt to decrease the tempo
+  - `/td` launches a prompt to decrease the tempo (for metronome)
     - `/tu` and `/t=` work similarly
+  - `/s` prompts for a new time signature (used by metronome)
   - `/h` prints the help page
   - `/k` prints the keymap
