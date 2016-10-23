@@ -65,9 +65,18 @@ module Sounds::SpecialCommands
       puts "\n  you're live\n\n\n".yellow
       Thread.new do
         @file_id = Time.now.to_i
+        cmd = <<-SH
+          parec --format=s16le -d record-n-play.monitor | \
+          lame -r --quiet -q 3 --lowpass 17 --abr 192 - "recording/#{@file_id}.mp3" \
+           > /dev/null &1>/dev/null
+        SH
+=begin
         `arecord -f cd -t raw | oggenc - -r -o recording/#{@file_id}.ogg > /dev/null 2>&1`
+=end
       end
     else
+      `killall -q parec lame`
+=begin
       `pkill arecord`
       puts "please check #{`pwd`.chomp}/recording and ".white_on_red
       puts "press enter when ogg file is ready".white_on_red
@@ -77,6 +86,7 @@ module Sounds::SpecialCommands
       `rm recording/#{@file_id}.ogg`
       puts "created recording/#{@file_id}.mp3 and removed ogg source".white_on_red
       puts " - - - - ".blue
+=end
     end
   end
 
