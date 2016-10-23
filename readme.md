@@ -5,7 +5,7 @@
 **Prerequisites**
 
 - ruby 2.3
-- system depencencies: `apt-get install mpg123 lame alsamixer arecord ffmpeg vorbis-tools`
+- system depencencies: `apt-get install mpg123 lame aplay ffmpeg vorbis-tools`
 - a decent processor. I have an intel i5 and the load is fairly low. But
 keep in mind that every drum hit opens a thread and tells `mpg123` to play a
 mp3 file. 
