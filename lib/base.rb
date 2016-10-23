@@ -17,7 +17,7 @@ module Sounds::Base
   end
 
   def play(name)
-    Thread.new { `mpg123 #{mp3_path name} > /dev/null 2>&1` }
+    Thread.new { `mpg123 -o alsa #{mp3_path name} > /dev/null 2>&1` }
   end
 
   def process_special_command(input)
