@@ -5,7 +5,7 @@
 **Prerequisites**
 
 1. ruby 2.3
-3. system depencencies: `apt-get install lame ffmpeg vorbis-tools mpg123 alsa-utils`
+3. system depencencies: `apt-get install lame ffmpeg vorbis-tools mpg123 alsa-utils pulseaudio`
 4. a decent processor. I have an intel i5 and the load is fairly low. But
 keep in mind that every drum hit opens a thread and tells `mpg123` to play a
 mp3 file. 
