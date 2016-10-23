@@ -5,7 +5,8 @@
 **Prerequisites**
 
 - ruby 2.3
-- system depencencies: `apt-get install mpg123 lame aplay ffmpeg vorbis-tools`
+- ALSA programs (these are included with Ubuntu, don't know about other platforms): alsamixer, arecord
+- system depencencies: `apt-get install mpg123 lame ffmpeg vorbis-tools`
 - a decent processor. I have an intel i5 and the load is fairly low. But
 keep in mind that every drum hit opens a thread and tells `mpg123` to play a
 mp3 file. 
