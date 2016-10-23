@@ -36,10 +36,10 @@ module Sounds::SpecialCommands
     Thread.new do
       while $is_metronome_playing
         single_beat_duration = 60.0 / $tempo_bpm
-        play "kick" # accent for the measure's beat 1
+        play "metronome/kick" # accent for the measure's beat 1
         ($time_signature).to_i.times do |i|
           sleep single_beat_duration
-          play "hihat"
+          play "metronome/hihat"
         end
       end
     end

@@ -1,15 +1,33 @@
 ---
 
-z: |
-  play "kick"
+b: |
+  play "jazz-kit/JK_BD_02"
 
-d: |
-  play "hihat"
+v: |
+  play "jazz-kit/JK_BD_02"
 
-s: |
-  play "snare"
+h: |
+  play "jazz-kit/JK_BD_06"
 
 f: |
-  stagger "hihat", beat_type: 64, beats: 8
+  play "jazz-kit/JK_BD_06"
+
+g: |
+  play "jazz-kit/JK_SNR_01"
+
+n: |
+  play "jazz-kit/JK_SNR_01"
+
+j: |
+  play "jazz-kit/JK_HH_01"
+
+r: |
+  play "jazz-kit/JK_BRSH_01"
+
+y: |
+  play "jazz-kit/JK_BRSH_01"
+
+t: |
+  stagger "jazz-kit/JK_PRC_05", beat_type: 150, beats: 8
 
 

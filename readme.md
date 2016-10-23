@@ -25,7 +25,7 @@ mp3 file.
 **Usage**
 
 - run `ruby sounds.rb` and read the instructions page that is printed
-- try hitting the keys 's', 'd', 'x', and 'f' to play some drum sounds.
+- try hitting the keys r,f,v,t,g,b,y,h,n (all in the center of the keyboard) to play some drum sounds.
 
 **Extending and Customizing**
 

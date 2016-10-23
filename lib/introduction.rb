@@ -28,10 +28,10 @@ module Sounds::Introduction
      - responds to changes in tempo and time signature
 
   Time signature
-     - set to N: #{"\s".green}
+     - set to N: #{"/s".green}
 
   Record
-      - start and stop with 
+      - start and stop with #{"/r".green} 
    
 
   
