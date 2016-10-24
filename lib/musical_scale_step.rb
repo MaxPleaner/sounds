@@ -21,7 +21,7 @@ class MusicalScaleStep
   end
 
   def phrygian
-    notes = [1, 4, 5, 7, 8, 10, 12, 13, 14]
+    notes = [1, 4, 5, 7, 8, 10, 12, 13]
     idx = correct_idx(notes.length, @num_steps.to_i)
     notes[idx] * (Semitone)
   end

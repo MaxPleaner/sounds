@@ -32,26 +32,28 @@ t: |
 
 a: |
   Sounds::Arpeggiator.play_scale(
-    "arpeggio for a",
+    "a",
     "metronome/piano",
     :random
   )
 
 s: |
   Sounds::Arpeggiator.play_scale(
-    "arpeggio for s",
+    "s",
     "metronome/piano",
-    :up_and_down,
+    :scale,
     scale: :equal_temperament
   )
 
 d: |
   Sounds::Arpeggiator.play_scale(
-    "arpeggio for d",
+    "d",
     "metronome/piano",
-    :up_and_down,
-    step_multiplier: 0.5,
+    :scale,
+    step_multiplier: 0.25,
+    step_adder: 1.0,
     scale: :phrygian,
   )
+
 
 
