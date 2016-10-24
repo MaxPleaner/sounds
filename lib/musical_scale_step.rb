@@ -10,14 +10,30 @@
 
 class MusicalScaleStep
   
-  Twelth_Root_Of_Two = 2.0 ** (1.0 / 12.0)
+  Semitone = 2.0 ** (1.0 / 12.0)
 
   def initialize(num_steps)
-    @num_steps = num_steps
+    @num_steps = num_steps.to_f
   end
 
   def equal_temperament
-    @num_steps * Twelth_Root_Of_Two
+    [@num_steps, 1].max * Semitone
+  end
+
+  def phrygian
+    notes = [1, 4, 5, 7, 8, 10, 12, 13, 14]
+    idx = correct_idx(notes.length, @num_steps.to_i)
+    notes[idx] * (Semitone)
+  end
+
+  private
+
+  def correct_idx(arr_length, idx)
+    max_idx = arr_length - 1
+    if idx > max_idx
+      idx = max_idx % idx
+    end
+    idx
   end
 
 end

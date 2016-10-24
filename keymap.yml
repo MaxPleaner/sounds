@@ -31,9 +31,27 @@ t: |
   stagger "jazz-kit/JK_BRSH_01", beat_type: 150, beats: 8
 
 a: |
-  Sounds::Arpeggiator.play_scale "metronome/piano", :test
+  Sounds::Arpeggiator.play_scale(
+    "arpeggio for a",
+    "metronome/piano",
+    :random
+  )
 
 s: |
-  Sounds::Arpeggiator.play_scale "metronome/piano", :default
+  Sounds::Arpeggiator.play_scale(
+    "arpeggio for s",
+    "metronome/piano",
+    :up_and_down,
+    scale: :equal_temperament
+  )
+
+d: |
+  Sounds::Arpeggiator.play_scale(
+    "arpeggio for d",
+    "metronome/piano",
+    :up_and_down,
+    step_multiplier: 0.5,
+    scale: :phrygian,
+  )
 
 

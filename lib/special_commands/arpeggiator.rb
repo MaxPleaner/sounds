@@ -24,9 +24,9 @@ module Sounds::Arpeggiator
     end
   end
 
-  def self.play_scale(sound_name, scale_id=:default, *scale_args, &delay_blk)
-    save_scale(sound_name, scale_id) unless SavedScales[sound_name]
-    SavedScales[sound_name] = true
+  def self.play_scale(cache_id, sound_name, scale_id=:default, *scale_args, &delay_blk)
+    save_scale(sound_name, scale_id, *scale_args) unless SavedScales[cache_id]
+    SavedScales[cache_id] = true
     note_deltas = round_deltas_to_2(get_scale(scale_id, *scale_args))
     note_deltas.each_with_index do |delta, idx|
       play_note(sound_name, delta)
