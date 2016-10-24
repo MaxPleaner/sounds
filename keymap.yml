@@ -60,7 +60,7 @@ z: |
     step_adder: EqualTemperament.default_step_adder,
   )
 
-w: |
+s: |
   play_scale(
     SecureRandom.urlsafe_base64,
     "metronome/piano",
@@ -70,7 +70,7 @@ w: |
     scale: :phrygian,
   )
 
-s: |
+w: |
   play_scale(
     SecureRandom.urlsafe_base64,
     "metronome/piano",
