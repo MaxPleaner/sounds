@@ -28,6 +28,12 @@ y: |
   play "jazz-kit/JK_BRSH_01"
 
 t: |
-  stagger "jazz-kit/JK_PRC_05", beat_type: 64, beats: 4
+  stagger "jazz-kit/JK_BRSH_01", beat_type: 150, beats: 8
+
+a: |
+  Sounds::Arpeggiator.play_scale "metronome/piano", :test
+
+s: |
+  Sounds::Arpeggiator.play_scale "metronome/piano", :default
 
 

@@ -1,3 +1,5 @@
+require './lib/musical_scale_step'
+
 class String
 
   def is_number?
@@ -11,4 +13,17 @@ class String
 
 end
 
+class Integer
+
+  # integer in this context means number of steps up in a musical scale
+  # see MusicalScale instance methods which return a delta percentage
+  # depending on which scale is used. 
+  def to_musical_scale_step
+    MusicalScaleStep.new(self)
+  end
+
+end
+
+
 Thread.abort_on_exception = true
+

@@ -1,6 +1,7 @@
 # standard library
 require 'io/console'
 require 'yaml'
+require 'ostruct'
 
 # gems
 require 'awesome_print' 
@@ -20,7 +21,7 @@ module Sounds; end
 Dir.glob("./lib/*.rb").each { |path| require path }
 
 # initialize with a tempo
-$tempo_bpm = ENV["Tempo"] || 120.0
+$tempo_bpm = ENV["Tempo"] || 300.0
 
 # start with the metronome off
 $is_metronome_playing = false
@@ -41,6 +42,7 @@ module Sounds
       include Sounds::Loader
       include Sounds::Effects
       include Sounds::SpecialCommands
+      include Sounds::Arpeggiator
     end
   end
 end

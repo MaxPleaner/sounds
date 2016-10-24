@@ -3,7 +3,7 @@ module Sounds::SpecialCommands
   # load all the files in lib/special_commands and make their constants available here
   Dir.glob("./lib/special_commands/*.rb").each do |path|
     require path
-    const_name = path.file_identifier.capitalize
+    const_name = path.file_identifier.camelize
     self.const_set(const_name, Object.const_get("Sounds::#{const_name}")) 
   end
 

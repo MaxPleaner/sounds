@@ -3,6 +3,10 @@ module Sounds::Base
   KeymapPath = ENV["KeymapPath"] || "keymap.yml"
   
   SpecialCommandCharacter = ENV["SpecialCommandCharacter"] || "/"
+  
+  def self.play_file_with_mpg123(path)
+    `mpg123 -o pulse #{path} > /dev/null 2>&1`
+  end
 
   def get_char(should_print=false)
     input = STDIN.getch
@@ -17,8 +21,9 @@ module Sounds::Base
   end
 
   def play(name)
-    Thread.new { `mpg123 -o pulse #{mp3_path name} > /dev/null 2>&1` }
+    Thread.new { Sounds::Base.play_file_with_mpg123(mp3_path(name)) }
   end
+
 
   def process_special_command(input)
     if input == SpecialCommandCharacter

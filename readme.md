@@ -4,9 +4,9 @@
 
 **Prerequisites**
 
-1. ruby 2.3
-3. system depencencies: `apt-get install lame ffmpeg vorbis-tools mpg123 alsa-utils pulseaudio`
-4. a decent processor. I have an intel i5 and the load is fairly low. But
+- ruby 2.3
+- system depencencies: `apt-get install mpg123 lame alsamixer arecord ffmpeg vorbis-tools`
+- a decent processor. I have an intel i5 and the load is fairly low. But
 keep in mind that every drum hit opens a thread and tells `mpg123` to play a
 mp3 file. 
 
@@ -46,3 +46,16 @@ are some examples:
   - `/s` prompts for a new time signature (used by metronome)
   - `/h` prints the help page
   - `/k` prints the keymap
+
+**Feaures in development**
+
+Arpeggios:
+
+- see the keymap for an example of starting an arpeggio.
+- define a new arpeggio in [lib/arpeggio_scales.rb](./lib/arpeggio_scales.rb).
+Also see `Integer#to_musical_scale_step` defined in [core_util.rb](./core_util.rb)
+and the methods in [lib/musical_scale_step.rb](./lib/musical_scale_step.rb).
+- The first time an arpeggio is run, it will create a bunch of files. These are copies
+of the trigger mp3 sound, pitch shifted to whatever the arpeggio requires.
+- From time to time `rm -rf mp3/arpeggios/*` can be run to clear out old arpeggio files
+if the folder's getting large. The arpeggio files can be recreated at runtime, anyway. 

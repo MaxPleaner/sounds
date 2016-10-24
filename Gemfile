@@ -1,8 +1,8 @@
 source 'http://rubygems.org'
 
-gem 'awesome_print' 
-gem 'colored'
-gem 'activesupport'
+require 'awesome_print' 
+require 'colored'
+require 'active_support/all'
 
 # for debugging
-gem 'byebug'
+require 'byebug'
