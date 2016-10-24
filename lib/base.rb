@@ -1,5 +1,22 @@
 module Sounds::Base
 
+  # copy all the constants of the class base is included in. This is because
+  # base calls class_eval, so those constants won't otherwise be in scope
+  def self.included(base)
+    super
+    base.class_exec do
+      include Sounds::Loader
+      include Sounds::Effects
+      include Sounds::SpecialCommands
+      include Sounds::Arpeggiator
+      include Sounds::MusicalScaleStep::DefaultModifiers
+      include Sounds::Introduction
+    end
+    base.constants.each do |konst|
+      const_set konst, const_get("#{base}::#{konst}")
+    end
+  end
+
   KeymapPath = ENV["KeymapPath"] || "keymap.yml"
   
   SpecialCommandCharacter = ENV["SpecialCommandCharacter"] || "/"

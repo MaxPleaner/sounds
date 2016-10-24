@@ -8,7 +8,21 @@
 # The instance methods return an integer, which is the number of steps multiplied
 # by some factor
 
-class MusicalScaleStep
+class Sounds::MusicalScaleStep
+
+  module DefaultModifiers
+    
+    class Phrygian
+      def self.default_step_multiplier; 0.125; end
+      def self.default_step_adder; 0.0; end
+    end
+
+    class EqualTemperament
+      def self.default_step_multiplier; 0.125; end
+      def self.default_step_adder; 0.4; end
+    end
+
+  end
   
   Semitone = 2.0 ** (1.0 / 12.0)
 
@@ -21,7 +35,7 @@ class MusicalScaleStep
   end
 
   def phrygian
-    notes = [1, 4, 5, 7, 8, 10, 12, 13]
+    notes = [1, 4, 5, 7, 8, 10, 12, 13, 16]
     idx = correct_idx(notes.length, @num_steps.to_i)
     notes[idx] * (Semitone)
   end

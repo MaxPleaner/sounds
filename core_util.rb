@@ -1,5 +1,3 @@
-require './lib/musical_scale_step'
-
 class String
 
   def is_number?
@@ -19,11 +17,23 @@ class Integer
   # see MusicalScale instance methods which return a delta percentage
   # depending on which scale is used. 
   def to_musical_scale_step
-    MusicalScaleStep.new(self)
+    Sounds::MusicalScaleStep.new(self)
   end
 
 end
 
+
+# multithreading can be turned off, for debugging
+# the reason for doing this would be to set breakpoints using byebug
+if ENV["SINGLE_THREADED"]
+
+  class Thread
+    def self.new(&blk)
+      blk.call
+    end
+  end
+
+end
 
 Thread.abort_on_exception = true
 

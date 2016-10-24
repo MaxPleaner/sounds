@@ -2,6 +2,7 @@
 require 'io/console'
 require 'yaml'
 require 'ostruct'
+require 'securerandom'
 
 # gems
 require 'awesome_print' 
@@ -33,16 +34,12 @@ $time_signature = ENV["TimeSignature"]&.to_i || 8.0
 $is_recording = false
 
 # When including Sounds, some other modules/constants are loaded as well
+# see lib/base.rb
 module Sounds
   def self.included(base)
     super
     base.class_exec do
-      include Sounds::Introduction
       include Sounds::Base
-      include Sounds::Loader
-      include Sounds::Effects
-      include Sounds::SpecialCommands
-      include Sounds::Arpeggiator
     end
   end
 end

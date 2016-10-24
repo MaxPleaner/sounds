@@ -30,29 +30,64 @@ y: |
 t: |
   stagger "jazz-kit/JK_BRSH_01", beat_type: 150, beats: 8
 
-a: |
-  Sounds::Arpeggiator.play_scale(
-    "a",
+q: |
+  play_scale(
+    SecureRandom.urlsafe_base64,
     "metronome/piano",
-    :random
+    :random,
+    scale: :equal_temperament,
+    step_multiplier: EqualTemperament.default_step_multiplier,
+    step_adder: EqualTemperament.default_step_adder,
+  )
+
+a: |
+  play_scale(
+    SecureRandom.urlsafe_base64,
+    "metronome/piano",
+    :scale,
+    scale: :equal_temperament,
+    step_multiplier: EqualTemperament.default_step_multiplier,
+    step_adder: EqualTemperament.default_step_adder,
+  )
+
+z: |
+  play_scale(
+    SecureRandom.urlsafe_base64,
+    "metronome/piano",
+    :reversed,
+    scale: :equal_temperament,
+    step_multiplier: EqualTemperament.default_step_multiplier,
+    step_adder: EqualTemperament.default_step_adder,
+  )
+
+w: |
+  play_scale(
+    SecureRandom.urlsafe_base64,
+    "metronome/piano",
+    :scale,
+    step_multiplier: Phrygian.default_step_multiplier,
+    step_adder: Phrygian.default_step_adder,
+    scale: :phrygian,
   )
 
 s: |
-  Sounds::Arpeggiator.play_scale(
-    "s",
+  play_scale(
+    SecureRandom.urlsafe_base64,
     "metronome/piano",
-    :scale,
-    scale: :equal_temperament
+    :random,
+    step_multiplier: Phrygian.default_step_multiplier,
+    step_adder: Phrygian.default_step_adder,
+    scale: :phrygian
   )
 
-d: |
-  Sounds::Arpeggiator.play_scale(
-    "d",
+x: |
+  play_scale(
+    SecureRandom.urlsafe_base64,
     "metronome/piano",
-    :scale,
-    step_multiplier: 0.25,
-    step_adder: 1.0,
+    :reversed,
     scale: :phrygian,
+    step_multiplier: Phrygian.default_step_multiplier,
+    step_adder: Phrygian.default_step_adder,
   )
 
 

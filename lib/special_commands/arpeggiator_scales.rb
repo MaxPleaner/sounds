@@ -9,7 +9,7 @@ module Sounds::ArpeggiatorScales
       max_num_step: 8,
       step_multiplier: 1.0,
       step_adder: 0.0,
-      scale: :equal_temperament
+      scale: :equal_temperament,
     }.merge options
     min, max, step_multiplier, step_adder, scale = options.values_at(*options.keys)
     min.upto(max).to_a.map do |num_steps|
@@ -19,6 +19,10 @@ module Sounds::ArpeggiatorScales
 
   def self.random(options={})
     scale(options).shuffle
+  end
+
+  def self.reversed(options={})
+    scale(options).reverse
   end
 
 end

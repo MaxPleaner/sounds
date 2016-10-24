@@ -6,11 +6,11 @@ module Sounds::Arpeggiator
 
   Scales = Sounds::ArpeggiatorScales
 
-  def self.get_scale(scale_id, *args)
+  def get_scale(scale_id, *args)
     Scales.send(scale_id, *args) || []
   end
 
-  def self.save_scale(sound_name, scale_id=:default, *scale_args)
+  def save_scale(sound_name, scale_id=:default, *scale_args)
     note_deltas = round_deltas_to_2(get_scale(scale_id, *scale_args))
     orig_path = "./mp3/#{sound_name}.mp3"
     sound_name = sound_name.gsub("/", "_")
@@ -24,7 +24,7 @@ module Sounds::Arpeggiator
     end
   end
 
-  def self.play_scale(cache_id, sound_name, scale_id=:default, *scale_args, &delay_blk)
+  def play_scale(cache_id, sound_name, scale_id=:default, *scale_args, &delay_blk)
     save_scale(sound_name, scale_id, *scale_args) unless SavedScales[cache_id]
     SavedScales[cache_id] = true
     note_deltas = round_deltas_to_2(get_scale(scale_id, *scale_args))
@@ -34,17 +34,17 @@ module Sounds::Arpeggiator
     end
   end
 
-  def self.play_note(sound_name, note_delta)
+  def play_note(sound_name, note_delta)
     sound_name = sound_name.gsub("/", "_")
     note_path = get_note_path(sound_name, note_delta)
     Thread.new { Sounds::Base.play_file_with_mpg123 note_path }
   end
 
-  def self.get_note_path(sound_name, note_delta)
+  def get_note_path(sound_name, note_delta)
     "./mp3/arpeggios/#{sound_name}/#{sound_name}-#{note_delta.to_s.gsub(".", "-")}.mp3"
   end
 
-  def self.round_deltas_to_2(deltas)
+  def round_deltas_to_2(deltas)
     deltas.map { |delta| delta.round(2) }
   end
 
