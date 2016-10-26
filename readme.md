@@ -52,7 +52,7 @@ are some examples:
 Arpeggios:
 
 - see the keymap for an example of starting an arpeggio.
-- define a new arpeggio in [lib/arpeggio_scales.rb](./lib/arpeggio_scales.rb).
+- define a new arpeggio in [lib/special_commands/arpeggio_scales.rb](./lib/special_commands/arpeggio_scales.rb).
 Also see `Integer#to_musical_scale_step` defined in [core_util.rb](./core_util.rb)
 and the methods in [lib/musical_scale_step.rb](./lib/musical_scale_step.rb).
 - The first time an arpeggio is run, it will create a bunch of files. These are copies
