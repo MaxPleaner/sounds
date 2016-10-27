@@ -11,20 +11,14 @@
 class Sounds::MusicalScaleStep
 
   module DefaultModifiers
-    
-    class Phrygian
-      def self.default_step_multiplier; 0.125; end
-      def self.default_step_adder; 0.0; end
-    end
+    Phrygian = OpenStruct.new \
+      default_step_multiplier: 1.0,
+      default_step_adder: 0.0
 
-    class EqualTemperament
-      def self.default_step_multiplier; 0.125; end
-      def self.default_step_adder; 0.4; end
-    end
-
+    EqualTemperament = OpenStruct.new \
+      default_step_multiplier: 1.0,
+      default_step_adder: 0.0
   end
-  
-  Semitone = 2.0 ** (1.0 / 12.0)
 
   def initialize(num_steps)
     @num_steps = num_steps.to_f

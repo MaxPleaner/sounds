@@ -27,7 +27,10 @@ module Sounds::Base
 
   def get_char(should_print=false)
     input = STDIN.getch
-    exit(1) if input == "\u0003"
+    if input == "\u0003"
+      `pkill mpg123`; puts 'goodbye'.green
+      exit(1)
+    end
     print(input) if should_print
     input
   end
@@ -48,7 +51,7 @@ module Sounds::Base
       special_command = get_char(true).to_sym rescue nil
       if self.class::SpecialCommandList.include? special_command
         send(special_command)
-        print "\n"
+        puts "\n"
       else
         puts "command not recognized"
       end

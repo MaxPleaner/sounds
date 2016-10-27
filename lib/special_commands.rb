@@ -8,7 +8,7 @@ module Sounds::SpecialCommands
   end
 
   # When creating a new command make sure to add it to this list
-  SpecialCommandList = [:k, :t, :h, :u, :s, :r]
+  SpecialCommandList = [:k, :t, :h, :u, :s, :r, :p]
 
   # keymap
   def k
@@ -36,10 +36,10 @@ module Sounds::SpecialCommands
     Thread.new do
       while $is_metronome_playing
         single_beat_duration = 60.0 / $tempo_bpm
-        play "metronome/kick" # accent for the measure's beat 1
+        play "metronome/snare" # accent for the measure's beat 1
         ($time_signature).to_i.times do |i|
           sleep single_beat_duration
-          play "metronome/hihat"
+          play "metronome/kick"
         end
       end
     end
@@ -77,6 +77,26 @@ module Sounds::SpecialCommands
       `rm recording/#{@file_id}.ogg`
       puts "created recording/#{@file_id}.mp3 and removed ogg source".white_on_red
       puts " - - - - ".blue
+    end
+  end
+
+  # play the last recorded sample, if any
+  def p
+    $is_last_recording_playing = !$is_last_recording_playing
+    if $is_last_recording_playing
+      Thread.new do
+        path = File.most_recently_edited("./recording/*.mp3")
+        Thread.new do
+          unless path.blank?
+            while $is_last_recording_playing
+              Sounds::Base.play_file_with_mpg123 path 
+            end
+          end
+        end
+        puts "playing #{path}"
+      end
+    else
+      puts "stopped playback"
     end
   end
 

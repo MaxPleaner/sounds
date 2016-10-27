@@ -1,94 +1,135 @@
 ---
 
-b: |
+p: |
   play "jazz-kit/JK_BD_02"
-
-v: |
-  play "jazz-kit/JK_BD_02"
-
-h: |
-  play "jazz-kit/JK_BD_06"
-
-f: |
-  play "jazz-kit/JK_BD_06"
-
-g: |
+l: |
   play "jazz-kit/JK_SNR_01"
-
-n: |
-  play "jazz-kit/JK_SNR_01"
-
-j: |
-  play "jazz-kit/JK_HH_01"
-
-r: |
-  play "jazz-kit/JK_BRSH_01"
-
-y: |
-  play "jazz-kit/JK_BRSH_01"
-
-t: |
+m: |
   stagger "jazz-kit/JK_BRSH_01", beat_type: 150, beats: 8
 
 q: |
-  play_scale(
-    SecureRandom.urlsafe_base64,
-    "metronome/piano",
-    :random,
-    scale: :equal_temperament,
-    step_multiplier: EqualTemperament.default_step_multiplier,
-    step_adder: EqualTemperament.default_step_adder,
+  play_scale(gen_id, "metronome/piano5", :scale,
+    scale:           :equal_temperament,
+    step_multiplier: one_divided_by(1),
+    step_adder:      6.0,
   )
 
 a: |
-  play_scale(
-    SecureRandom.urlsafe_base64,
-    "metronome/piano",
-    :scale,
-    scale: :equal_temperament,
-    step_multiplier: EqualTemperament.default_step_multiplier,
-    step_adder: EqualTemperament.default_step_adder,
+  play_scale(gen_id, "metronome/piano5", :scale,
+    scale:           :equal_temperament,
+    step_multiplier: one_divided_by(1),
+    step_adder:      4.1,
   )
 
 z: |
-  play_scale(
-    SecureRandom.urlsafe_base64,
-    "metronome/piano",
-    :reversed,
-    scale: :equal_temperament,
-    step_multiplier: EqualTemperament.default_step_multiplier,
-    step_adder: EqualTemperament.default_step_adder,
-  )
-
-s: |
-  play_scale(
-    SecureRandom.urlsafe_base64,
-    "metronome/piano",
-    :scale,
-    step_multiplier: Phrygian.default_step_multiplier,
-    step_adder: Phrygian.default_step_adder,
-    scale: :phrygian,
+  play_scale(gen_id, "metronome/piano5", :scale,
+    scale:           :equal_temperament,
+    step_multiplier: one_divided_by(1),
+    step_adder:      8.0,
   )
 
 w: |
-  play_scale(
-    SecureRandom.urlsafe_base64,
-    "metronome/piano",
-    :random,
-    step_multiplier: Phrygian.default_step_multiplier,
-    step_adder: Phrygian.default_step_adder,
-    scale: :phrygian
+  play_scale(gen_id, "metronome/piano5", :scale,
+    step_multiplier: one_divided_by(1),
+    step_adder:      6.0,
+    scale:           :phrygian,
+  )
+
+s: |
+  play_scale(gen_id, "metronome/piano5", :scale,
+    step_multiplier: one_divided_by(1),
+    step_adder:      4.1,
+    scale:           :phrygian,
   )
 
 x: |
-  play_scale(
-    SecureRandom.urlsafe_base64,
-    "metronome/piano",
-    :reversed,
-    scale: :phrygian,
-    step_multiplier: Phrygian.default_step_multiplier,
-    step_adder: Phrygian.default_step_adder,
+  play_scale(gen_id, "metronome/piano5", :scale,
+    step_multiplier: one_divided_by(1),
+    step_adder:      8.0,
+    scale:           :phrygian,
   )
 
 
+e: |
+  play_scale(gen_id, "metronome/piano5", :reversed,
+    scale:           :equal_temperament,
+    step_multiplier: one_divided_by(1),
+    step_adder:      6.0,
+  )
 
+d: |
+  play_scale(gen_id, "metronome/piano5", :reversed,
+    scale:           :equal_temperament,
+    step_multiplier: one_divided_by(1),
+    step_adder:      4.1,
+  )
+
+c: |
+  play_scale(gen_id, "metronome/piano5", :reversed,
+    scale:           :equal_temperament,
+    step_multiplier: one_divided_by(1),
+    step_adder:      8.0,
+  )
+
+r: |
+  play_scale(gen_id, "metronome/piano5", :reversed,
+    step_multiplier: one_divided_by(1),
+    step_adder:      6.0,
+    scale:           :phrygian,
+  )
+
+f: |
+  play_scale(gen_id, "metronome/piano5", :reversed,
+    step_multiplier: one_divided_by(1),
+    step_adder:      4.1,
+    scale:           :phrygian,
+  )
+
+v: |
+  play_scale(gen_id, "metronome/piano5", :reversed,
+    step_multiplier: one_divided_by(1),
+    step_adder:      8.0,
+    scale:           :phrygian,
+  )
+
+t: |
+  play_scale(gen_id, "metronome/piano5", :random,
+    scale:           :equal_temperament,
+    step_multiplier: one_divided_by(1),
+    step_adder:      6.0,
+  )
+
+g: |
+  play_scale(gen_id, "metronome/piano5", :random,
+    scale:           :equal_temperament,
+    step_multiplier: one_divided_by(1),
+    step_adder:      4.1,
+  )
+
+b: |
+  play_scale(gen_id, "metronome/piano5", :random,
+    scale:           :equal_temperament,
+    step_multiplier: one_divided_by(1),
+    step_adder:      8.0,
+  )
+
+y: |
+  play_scale(gen_id, "metronome/piano5", :random,
+    step_multiplier: one_divided_by(1),
+    step_adder:      6.0,
+    scale:           :phrygian,
+  )
+
+h: |
+  play_scale(gen_id, "metronome/piano5", :random,
+    step_multiplier: one_divided_by(1),
+    step_adder:      4.1,
+    scale:           :phrygian,
+  )
+
+n: |
+  play_scale(gen_id, "metronome/piano5", :random,
+    step_multiplier: one_divided_by(1),
+    step_adder:      8.0,
+    scale:           :phrygian,
+  )

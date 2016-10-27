@@ -29,6 +29,7 @@ module Sounds::Arpeggiator
     SavedScales[cache_id] = true
     note_deltas = round_deltas_to_2(get_scale(scale_id, *scale_args))
     note_deltas.each_with_index do |delta, idx|
+      # puts delta
       play_note(sound_name, delta)
       delay_blk ? sleep(delay_blk.call(delta, idx)) : sleep(60.0 / $tempo_bpm)
     end
