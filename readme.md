@@ -1,3 +1,7 @@
+# Note
+
+Check out [step_sequencer](http://github.com/maxpleaner/step_sequencer) which is a similar, but not identical, project I made. 
+
 
 #### Keyboard drummer
 
